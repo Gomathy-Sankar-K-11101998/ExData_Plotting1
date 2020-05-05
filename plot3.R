@@ -9,6 +9,7 @@ house_power_consume = transform(house_power_consume, Sub_metering_1 = as.numeric
 house_power_consume = transform(house_power_consume, Sub_metering_2 = as.numeric(Sub_metering_2))
 house_power_consume = transform(house_power_consume, Sub_metering_3 = as.numeric(Sub_metering_3))
 
+par(mfrow = c(1,1))
 with(house_power_consume, plot(Time, Sub_metering_1, type = "l", col = "black", xlab = "", ylab = "Energy sub metering"))
 with(house_power_consume, lines(Time, Sub_metering_2, type = "l", col = "red"))
 with(house_power_consume, lines(Time, Sub_metering_3, type = "l", col = "blue"))

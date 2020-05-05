@@ -5,6 +5,7 @@ house_power_consume = subset(house_power_consume, Date == "2007-02-02" | Date ==
 house_power_consume = transform(house_power_consume, Global_active_power = as.numeric(Global_active_power))
 house_power_consume$Time = paste(house_power_consume$Date, house_power_consume$Time, sep = " ")
 house_power_consume = transform(house_power_consume, Time = strptime(Time, "%Y-%m-%d %H:%M:%S"))
-with(house_power_consume, plot(Time, Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)"))
+par(mfrow = c(1,1))
+with(house_power_consume, plot(Time, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
 dev.copy(png, file = "plot2.png")
 dev.off()
